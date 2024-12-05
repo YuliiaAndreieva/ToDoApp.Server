@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoApp.DAL.Data;
 
@@ -11,9 +12,11 @@ using ToDoApp.DAL.Data;
 namespace ToDoApp.DAL.Migrations
 {
     [DbContext(typeof(ToDoAppDbContext))]
-    partial class ToDoAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241201161257_UpdateTimeFormat")]
+    partial class UpdateTimeFormat
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,11 +39,10 @@ namespace ToDoApp.DAL.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2(0)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsDone")
+                        .HasColumnType("bit");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

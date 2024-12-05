@@ -10,5 +10,5 @@ public class UserTaskFullDto
     
     public DateTime DueDate { get; set; }
     
-    public bool IsDone { get; set; }
+    public string Status { get; set; }
 }

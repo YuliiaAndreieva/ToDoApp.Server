@@ -23,8 +23,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-//var seeder = new DatabaseSeeder(app.Services);
-//await seeder.SeedAsync();
+var seeder = new DatabaseSeeder(app.Services);
+await seeder.SeedAsync();
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
+});
 app.UseSerilogRequestLogging();
 app.MapControllers();
 app.Run();

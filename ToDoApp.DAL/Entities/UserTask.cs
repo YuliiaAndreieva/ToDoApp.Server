@@ -1,4 +1,6 @@
-﻿namespace ToDoApp.DAL.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ToDoApp.DAL.Entities;
 
 public class UserTask
 {
@@ -8,7 +10,8 @@ public class UserTask
 
     public string? Description { get; set; } 
     
+    [Column(TypeName = "datetime2(0)")]
     public DateTime DueDate { get; set; }
-    
-    public bool IsDone { get; set; }
+
+    public UserTaskStatus Status { get; set; } = UserTaskStatus.Planned;
 }

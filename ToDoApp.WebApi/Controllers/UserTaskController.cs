@@ -9,7 +9,7 @@ using ToDoApp.BLL.MediatR.UserTask.Update;
 
 namespace ToDoApp.WebApi.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/task")]
 [ApiController]
 public class UserTaskController(
     IMediator mediator) : ControllerBase
