@@ -19,11 +19,19 @@ public class BaseUserTaskValidator : AbstractValidator<BaseUserTaskDto>
             .MaximumLength(20)
             .WithMessage("The name must be shorter ");
         
-        RuleFor(c => c.DueDate)
+        RuleFor(c => c.StartDate)
             .NotNull()
-            .WithMessage("Due date is required.")
+            .WithMessage("Start date is required.")
             .Must(BeWithinCurrentWeek)
-            .WithMessage("The due date must be within the current week.");
+            .WithMessage("The start date must be within the current week.");
+        
+        RuleFor(c => c.EndDate)
+            .NotNull()
+            .WithMessage("Start date is required.")
+            .Must(BeWithinCurrentWeek)
+            .WithMessage("The start date must be within the current week.")
+            .GreaterThanOrEqualTo(c => c.StartDate)
+            .WithMessage("The end date must be later than or equal to the start date.");
         
         When(ut => !ut.Description.IsNullOrEmpty(), () =>
         {

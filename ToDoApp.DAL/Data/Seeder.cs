@@ -24,30 +24,35 @@ public class Seeder
             {
                 Name = "CrossPlatformlab1",
                 Description = "i need to do 13 labs",
-                DueDate = DateTime.Now.AddDays(1),
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(1),
             },
             new UserTask()
             {
                 Name = "The lesson", 
-                DueDate = DateTime.Now.AddDays(2),
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(2),
                 Description = "lessons with Oleksandr, Gleb, Victoria.",
             },
             new UserTask()
             {
                 Name = "OS Presentation", 
-                DueDate = DateTime.Now.AddDays(3),
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(3),
                 Description = "some drafts ive",
             },
             new UserTask()
             {
                 Name = "Front end lab1", 
-                DueDate = DateTime.Now.AddDays(0),
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(0),
                 Description = "ive done 1-2 labs",
             },
             new UserTask()
             {
                 Name = "IELTS", 
-                DueDate = DateTime.Now.AddDays(1),
+                StartDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(1),
             },
         };
         

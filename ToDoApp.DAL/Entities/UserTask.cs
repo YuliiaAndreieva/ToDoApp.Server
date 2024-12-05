@@ -11,7 +11,10 @@ public class UserTask
     public string? Description { get; set; } 
     
     [Column(TypeName = "datetime2(0)")]
-    public DateTime DueDate { get; set; }
+    public DateTime StartDate { get; set; }
+    
+    [Column(TypeName = "datetime2(0)")]
+    public DateTime EndDate { get; set; }
 
     public UserTaskStatus Status { get; set; } = UserTaskStatus.Planned;
 }
