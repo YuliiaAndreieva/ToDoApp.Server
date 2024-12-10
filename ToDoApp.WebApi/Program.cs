@@ -5,7 +5,10 @@ using ToDoApp.WebApi.Configurations;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddStorage(builder.Configuration);
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.RespectBrowserAcceptHeader = true;
+}).AddXmlSerializerFormatters();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddLogging();
@@ -23,8 +26,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-var seeder = new DatabaseSeeder(app.Services);
-await seeder.SeedAsync();
+//var seeder = new DatabaseSeeder(app.Services);
+//await seeder.SeedAsync();
 app.UseCors(options =>
 {
     options.AllowAnyOrigin()

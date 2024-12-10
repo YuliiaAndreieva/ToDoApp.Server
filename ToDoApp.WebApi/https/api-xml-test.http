@@ -1,0 +1,59 @@
+﻿# curl -X POST http://5145/api/task 
+#
+#-H "Content-Type: application/xml" 
+#-H "Accept: application/xml" 
+#-d '<?xml version="1.0" encoding="UTF-8"?>
+#<CreateUserTaskDto>
+#	<name>string</name>
+#	<startDate>2024-12-10T19:20:24.512Z</startDate>
+#	<endDate>2024-12-10T19:20:24.512Z</endDate>
+#	<description>string</description>
+#	<status>string</status>
+#</CreateUserTaskDto>
+POST http://localhost:5145/api/task
+Accept: application/xml
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateUserTaskDto>
+    <Name>My Task</Name>
+    <StartDate>2024-12-10T09:00:00</StartDate>
+    <EndDate>2024-12-10T17:00:00</EndDate>
+    <Description>This is a task description</Description>
+    <Status>Planned</Status>
+</CreateUserTaskDto>
+
+###
+
+# curl -H "Accept: application/xml" http://localhost:5145/api/task
+GET http://localhost:5145/api/task
+Accept: application/xml
+
+###
+
+# curl -H "Accept: application/xml" http://localhost:5145/api/task
+GET http://localhost:5145/api/task/1
+Accept: application/xml
+
+###
+
+PUT http://localhost:5145/api/task
+Accept: application/xml
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateUserTaskDto>
+    <Id>6</Id>
+    <Name>My Task222</Name>
+    <StartDate>2024-12-10T09:00:00</StartDate>
+    <EndDate>2024-12-10T17:00:00</EndDate>
+    <Description>This is a task description</Description>
+    <Status>Planned</Status>
+</UpdateUserTaskDto>
+
+###
+
+DELETE http://localhost:5145/api/task/6
+Accept: application/xml
+
+
