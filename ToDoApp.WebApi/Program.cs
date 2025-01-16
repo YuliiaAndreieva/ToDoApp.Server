@@ -1,6 +1,7 @@
 using Serilog;
 using ToDoApp.BLL.Configuration;
 using ToDoApp.WebApi.Configurations;
+using ToDoApp.WebApi.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,14 +27,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-//var seeder = new DatabaseSeeder(app.Services);
-//await seeder.SeedAsync();
-app.UseCors(options =>
-{
-    options.AllowAnyOrigin()
+var seeder = new DatabaseSeeder(app.Services);
+await seeder.SeedAsync();
+app.UseMiddleware<MediaTypeValidationMiddleware>();
+app.UseCors(policy =>
+    policy.WithOrigins("http://localhost:3000")
+        .AllowAnyHeader()
         .AllowAnyMethod()
-        .AllowAnyHeader();
-});
+        .AllowCredentials());
 app.UseSerilogRequestLogging();
 app.MapControllers();
 app.Run();

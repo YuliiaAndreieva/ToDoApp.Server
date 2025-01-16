@@ -1,0 +1,60 @@
+﻿# curl -X 'GET' 
+#  'http://localhost:5145/api/task' 
+#  -H 'accept: */*'
+GET http://localhost:5145/api/task
+Accept: application/json
+
+###
+
+GET http://localhost:5145/api/task
+Accept: text/plain
+
+###
+
+GET http://localhost:5145/api/task/2
+accept: application/json
+
+###
+
+# curl -X 'POST' 
+#  'http://localhost:5145/api/task' 
+#  -H 'accept: */*' 
+#  -H 'Content-Type: application/json' 
+#  -d '{
+#  "name": "NEW TASK",
+#  "startDate": "2024-12-12T20:30:17.305Z",
+#  "endDate": "2024-12-14T20:30:17.305Z",
+#  "description": "string",
+#  "status": "Done"
+#}'
+POST http://localhost:5145/api/task
+accept: application/json
+Content-Type: application/json
+
+{
+  "name": "NEW TASK",
+  "startDate": "2024-12-12T20:30:17.305Z",
+  "endDate": "2024-12-14T20:30:17.305Z",
+  "description": "string",
+  "status": "Done"
+}
+
+###
+
+PUT http://localhost:5145/api/task
+accept: application/json
+Content-Type: application/json
+
+{
+  "id": 8,
+  "name": "NEW TASK2",
+  "startDate": "2024-12-12T20:30:17.305Z",
+  "endDate": "2024-12-14T20:30:17.305Z",
+  "description": "string",
+  "status": "Done"
+}
+
+###
+
+DELETE http://localhost:5145/api/task/6
+Accept: application/json
